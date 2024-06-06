@@ -2,6 +2,9 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+// Function prototypes
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+
 // 顶点着色器源码
 const char* vertexShaderSource = R"(
     #version 330 core
@@ -22,23 +25,32 @@ const char* fragmentShaderSource = R"(
     }
 )";
 
+// Window dimensions
+const GLuint WIDTH = 800, HEIGHT = 600;
+
 int main()
 {
+    std::cout << "Starting GLFW context, OpenGL 3.3" << std::endl;
+
     // 初始化GLFW
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     // 创建一个窗口对象
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL", NULL, NULL);
-    if (window == NULL)
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "LearnOpenGL", nullptr, nullptr);
+    if (window == nullptr)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
+
+    // Set the required callback functions
+    glfwSetKeyCallback(window, key_callback);
 
     // 初始化GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -88,6 +100,7 @@ int main()
     // 渲染循环
     while (!glfwWindowShouldClose(window))
     {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
@@ -104,4 +117,12 @@ int main()
     // 终止GLFW
     glfwTerminate();
     return 0;
+}
+
+// Is called whenever a key is pressed/released via GLFW
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+    std::cout << key << std::endl;
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GL_TRUE);
 }
