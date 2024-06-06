@@ -1,0 +1,3 @@
+CSDN教程：https://blog.csdn.net/weixin_62264287/article/details/134716198
+ＧＬＦＷ　：https://www.glfw.org/download.html
+ＧＬＡＤ：https://glad.dav1d.de/

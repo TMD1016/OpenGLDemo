@@ -1,0 +1,10 @@
+# ninja log v5
+1	1190	7393658939720523	CMakeFiles/OpenGL.dir/main.cpp.obj	1b2426dda52bf88c
+5	1812	7393658945938540	CMakeFiles/OpenGL.dir/src/glad.c.obj	14492605447e1cbe
+1814	2265	7393658950423277	OpenGL.exe	c677fdfd4f3b2cd8
+4	342	7393659331708594	CMakeFiles/OpenGL.dir/main.cpp.obj	1b2426dda52bf88c
+343	428	7393659332518115	OpenGL.exe	c677fdfd4f3b2cd8
+4	144	7393662275272512	CMakeFiles/OpenGL.dir/main.cpp.obj	1b2426dda52bf88c
+144	248	7393662276272529	OpenGL.exe	c677fdfd4f3b2cd8
+4	314	7393662689909937	CMakeFiles/OpenGL.dir/main.cpp.obj	1b2426dda52bf88c
+315	401	7393662690749945	OpenGL.exe	c677fdfd4f3b2cd8
