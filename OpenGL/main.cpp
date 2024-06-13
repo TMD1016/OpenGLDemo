@@ -75,6 +75,7 @@ int main()
     {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+        return -1;
     }
 
     // 编译片段着色器
@@ -86,6 +87,7 @@ int main()
     {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+        return -1;
     }
 
     // 链接着色器程序
@@ -98,17 +100,18 @@ int main()
     if (!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+        return -1;
     }
-    
+
     // 删除着色器
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
     //设置顶点数据
     float vertices[] = {
-            0.5f,  0.5f, 0.0f,  // 右上角
-            0.5f, -0.5f, 0.0f,  // 右下角
-            -0.5f, -0.5f, 0.0f,  // 左下角
+            0.0f,  0.5f, 0.0f,  // 右上角
+            -0.5f, -0.5f, 0.0f,  // 右下角
+            0.5f, -0.5f, 0.0f,  // 左下角
     };
 
     unsigned int VBO, VAO;
