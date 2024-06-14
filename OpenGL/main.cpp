@@ -1,3 +1,6 @@
+
+
+#include "cmath"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -8,20 +11,24 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 // 顶点着色器源码
 const char* vertexShaderSource = R"(
     #version 330 core
-    layout (location = 0) in vec3 aPos;
+    layout (location = 0) in vec3 position;
+    layout (location = 1) in vec3 color;
+    out vec3 ourColor;
     void main()
     {
-        gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+        gl_Position = vec4(position, 1.0f);
+        ourColor = color;
     }
 )";
 
 // 片段着色器源码
 const char* fragmentShaderSource = R"(
     #version 330 core
-    out vec4 FragColor;
+    out vec4 color;
+    uniform vec4 ourColor;
     void main()
     {
-        FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+        color = ourColor;
     }
 )";
 
@@ -65,7 +72,7 @@ int main()
 
     // 编译顶点着色器
     GLuint vertexShader= glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
     glCompileShader(vertexShader);
 
     GLint  success;
@@ -73,19 +80,19 @@ int main()
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
     if (!success)
     {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+        glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
         return -1;
     }
 
     // 编译片段着色器
     GLuint fragmentShader= glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+    glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
     glCompileShader(fragmentShader);
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success)
     {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+        glGetShaderInfoLog(fragmentShader, 512, nullptr, infoLog);
         std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
         return -1;
     }
@@ -98,7 +105,7 @@ int main()
 
     glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
     if (!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        glGetProgramInfoLog(shaderProgram, 512, nullptr, infoLog);
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
         return -1;
     }
@@ -108,32 +115,44 @@ int main()
     glDeleteShader(fragmentShader);
 
     //设置顶点数据
-    float vertices[] = {
-            0.0f,  0.5f, 0.0f,  // 右上角
-            -0.5f, -0.5f, 0.0f,  // 右下角
-            0.5f, -0.5f, 0.0f,  // 左下角
+    GLfloat vertices[] = {
+            0.5f, -0.5f, 0.0f,  // Bottom Right
+            -0.5f, -0.5f, 0.0f,  // Bottom Left
+            0.0f,  0.5f, 0.0f   // Top
     };
 
-    unsigned int VBO, VAO;
+    GLuint VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
 
     // 渲染循环
     while (!glfwWindowShouldClose(window))
     {
+        glfwPollEvents();
+
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
         glUseProgram(shaderProgram);
+
+        // Update the uniform color
+        GLfloat timeValue = glfwGetTime();
+        GLfloat greenValue = (sin(timeValue) / 2) + 0.5;
+        GLint vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
+
         glfwSwapBuffers(window);
-        glfwPollEvents();
+
     }
 
 
