@@ -8,8 +8,12 @@
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
+
+// Window dimensions
+const GLuint WIDTH = 800, HEIGHT = 600;
+
 // 顶点着色器源码
-const char* vertexShaderSource = R"(
+const GLchar* vertexShaderSource = R"(
     #version 330 core
     layout (location = 0) in vec3 position;
     layout (location = 1) in vec3 color;
@@ -22,18 +26,16 @@ const char* vertexShaderSource = R"(
 )";
 
 // 片段着色器源码
-const char* fragmentShaderSource = R"(
+const GLchar* fragmentShaderSource = R"(
     #version 330 core
+    in vec3 ourColor;
     out vec4 color;
-    uniform vec4 ourColor;
     void main()
     {
-        color = ourColor;
+        color = vec4(ourColor, 1.0f);
     }
 )";
 
-// Window dimensions
-const GLuint WIDTH = 800, HEIGHT = 600;
 
 int main()
 {
@@ -116,41 +118,45 @@ int main()
 
     //设置顶点数据
     GLfloat vertices[] = {
-            0.5f, -0.5f, 0.0f,  // Bottom Right
-            -0.5f, -0.5f, 0.0f,  // Bottom Left
-            0.0f,  0.5f, 0.0f   // Top
+            // Positions         // Colors
+            0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // Bottom Right
+            -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // Bottom Left
+            0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // Top
     };
 
     GLuint VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
+    //首先绑定顶点数组对象，然后绑定和设置顶点缓冲区和属性指针。
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
 
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+
+    glBindVertexArray(0);//解绑VAO
     // 渲染循环
     while (!glfwWindowShouldClose(window))
     {
+        //检查是否有任何事件被激活（按键按下、鼠标移动等），并调用相应的响应函数。
         glfwPollEvents();
 
+        // Clear the colorbuffer
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        // Draw the triangle
         glUseProgram(shaderProgram);
-
-        // Update the uniform color
-        GLfloat timeValue = glfwGetTime();
-        GLfloat greenValue = (sin(timeValue) / 2) + 0.5;
-        GLint vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
 
+        // Swap the screen buffers
         glfwSwapBuffers(window);
 
     }
