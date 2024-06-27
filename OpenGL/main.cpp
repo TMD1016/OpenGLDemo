@@ -170,7 +170,7 @@ void processInput(GLFWwindow *window) {
     }
 }
 
-//*/
+// */
 
 /* // 04_shader_glsl_0
 
@@ -408,7 +408,7 @@ void processInput(GLFWwindow *window)
 
 // */
 
-/* 03_hello_triangle_exercise
+/*  //03_hello_triangle_exercise
 
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
@@ -624,9 +624,9 @@ void processInput(GLFWwindow *window)
         glfwSetWindowShouldClose(window, true);
 }
 
- */
+ // */
 
-/* 02_hello_Triangle
+/*   //02_hello_Triangle
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -809,9 +809,9 @@ void processInput(GLFWwindow *window) {
         glfwSetWindowShouldClose(window, true);
     }
 }
-*/
+// */
 
-/* 01_hello_window
+/*  //01_hello_window
 
 #include "cmath"
 #include <glad/glad.h>
@@ -992,4 +992,4 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
 }
- */
+ // */
