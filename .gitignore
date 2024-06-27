@@ -1,1 +1,6 @@
 /OpenGL/.idea
+/OpenGL/cmake-build-debug
+/.idea/OpenGLDemo.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
