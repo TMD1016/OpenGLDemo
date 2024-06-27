@@ -1,5 +1,16 @@
 
 
+  //05_shader_class
+
+#include <glad/glad.h>
+#include<GLFW/glfw3.h>
+#include<iostream>
+#include<cmath>
+
+ // */
+
+
+
 
 /* // 04_shader_glsl_1
 
@@ -140,8 +151,8 @@ int main() {
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
 
-//        glDrawArrays(GL_POINTS, 0, 6);
-//        glDrawArrays(GL_LINE_LOOP, 0, 3);
+        //glDrawArrays(GL_POINTS, 0, 6);
+        //glDrawArrays(GL_LINE_LOOP, 0, 3);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glBindVertexArray(0);
