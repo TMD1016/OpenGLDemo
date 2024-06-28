@@ -13,7 +13,7 @@ uniform float xOffset;
 // vec3(0.0, 0.0, 0.0)
 
 void main(){
-    gl_Position = vec4(aPos.x, -aPos.y, aPos.z, 1.0f);
+    gl_Position = vec4(aPos.x + xOffset, -aPos.y, aPos.z, 1.0f);
     ourColor = aColor;
     ourPos = aPos;
 }
