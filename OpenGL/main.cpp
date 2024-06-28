@@ -6,13 +6,20 @@
 #include <GLFW/glfw3.h>
 #include <tool/shader.h>
 #include <iostream>
+#include <cstring>
+
 std::string Shader::dirName;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
 void processInput(GLFWwindow *window);
 
-int main() {
+std::string getRootDirectory(const std::string fullPath);
+
+int main(int argc, char *argv[]) {
+
+    //获取根目录
+    auto path =  getRootDirectory(argv[0]);
 
     glfwInit();
     // 设置主要和次要版本
@@ -40,8 +47,8 @@ int main() {
     // 注册窗口变化监听
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    Shader ourShader("D:/GitDemo/OpenGLDemo/OpenGL/shader/vertex.glsl",
-                     "D:/GitDemo/OpenGLDemo/OpenGL/shader/fragment.glsl");
+    //加载着色器
+    Shader ourShader((path + "/shader/vertex.glsl").c_str(), (path + "/shader/fragment.glsl").c_str());
 
     // 定义顶点数组
     float vertices[] = {
@@ -109,6 +116,17 @@ void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
+}
+
+std::string getRootDirectory(const std::string fullPath)
+{
+    std::string basePath;
+    size_t pos = fullPath.rfind("cmake-build-debug");
+    if(pos != std::string::npos)
+    {
+        basePath = fullPath.substr(0, pos);
+    }
+    return basePath;
 }
 
 // */
