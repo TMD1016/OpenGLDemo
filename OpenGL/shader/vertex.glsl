@@ -1,5 +1,63 @@
+//10_use_plane_geometry
+
+#version 330 core
+layout (location = 0) in vec3 Position;
+layout (location = 1) in vec3 Normal;
+layout (location = 2) in vec2 TexCoords;
+
+out vec3 outPosition;
+out vec2 outTexCoord;
+
+uniform float factor;
+
+
+// |  1   0      0     0|    |x|    |         x         |
+// |  0   cos0  -sin0  0|  * |y| =  |cos0 * y - sin0 * z|
+// |  0   sin0  cos0   0|    |z|    |sin0 * y + cos0 * z|
+// |  0   0      0     1|    |w|    |         1         |
+mat4 rorateX(float angle)
+{
+    return mat4(1.0f, 0.0f, 0.0f, 0.0f,
+                0.0f, cos(angle), -sin(angle), 0.0f,
+                0.0f, sin(angle), cos(angle), 0.0f,
+                0.0f, 0.0f, 0.0f, 1.0f);
+}
+
+
+// |  cos0  0  sin0   0|    |x|    |x * cos0 + z * sin0|
+// |  0     0     1   0|  * |y| =  |         y         |
+// | -sin0  0  cos0   0|    |z|    |-sinθ *x + cosθ * z|
+// |  0     0     0   1|    |w|    |         1         |
+mat4 rotateY(float angle) {
+    return mat4(cos(angle), 0.0f, sin(angle), 0.0f,
+                0.0f, 1.0f, 0.0f, 0.0f,
+                -sin(angle), 0.0f, cos(angle), 0.0f,
+                0.0f, 0.0f, 0.0f, 1.0f);
+}
+
+// |  cos0  -sin0   0   0|    |x|    |x * cos0 - y * sin0|
+// |  sin0   cos0   0   0|  * |y| =  |x * sin0 + y * cos0|
+// |  0       0     1   0|    |z|    |         z         |
+// |  0       0     0   1|    |w|    |         1         |
+mat4 rotateZ(float angle) {
+    return mat4(cos(angle), -sin(angle), 0.0f, 0.0f,
+                sin(angle), cos(angle), 0.0f, 0.0f,
+                0.0f, 0.0f, 1.0f, 0.0f,
+                0.0f, 0.0f, 0.0f, 1.0f);
+}
+
+void main()
+{
+    // gl_Position = rotateXYZ(factor) * vec4(Position, 1.0f);
+    gl_Position = vec4(Position, 1.0f);
+    gl_PointSize = 10.0f;
+    outTexCoord = TexCoords;
+}
+
+//*/
 
 /* //09_transform
+
 #version 330 core
 layout(location = 0) in vec3 aPos;
 layout(location = 1) in vec3 aColor;
@@ -12,13 +70,11 @@ out vec2 TexCoord;
 uniform float factor;
 uniform mat4 transform;
 
-/**
-  * |  cos0  -sin0   0   0|    |x|    |x * cos0 - y * sin0|
-  * |  sin0   cos0   0   0|  * |y| =  |x * sin0 + y * cos0|
-  * |  0       0     1   0|    |z|    |         z         |
-  * |  0       0     0   1|    |w|    |         1         |
-  * 可以用矩阵来旋转坐标系统
-  */
+// |  cos0  -sin0   0   0|    |x|    |x * cos0 - y * sin0|
+// |  sin0   cos0   0   0|  * |y| =  |x * sin0 + y * cos0|
+// |  0       0     1   0|    |z|    |         z         |
+// |  0       0     0   1|    |w|    |         1         |
+// 可以用矩阵来旋转坐标系统
 mat4 rotate3d(float _angle) {
     return mat4(cos(_angle), -sin(_angle), 0.0f, 0.0f,
                 sin(_angle), cos(_angle), 0.0f, 0.0f,
@@ -40,6 +96,7 @@ void main() {
 //*/
 
 /* //08_load_texture_exercise
+
 #version 330 core
 layout(location = 0) in vec3 aPos;
 layout(location = 1) in vec3 aColor;
@@ -53,6 +110,7 @@ void main() {
     ourColor = aColor;
     TexCoord = aTexCoord * 2.0f;
 }
+
 //*/
 
 
@@ -74,7 +132,6 @@ void main() {
     TexCoord = aTexCoord * 2.0;
 }
 
-
 // */
 
 /* //06_glsl_exercise
@@ -93,10 +150,12 @@ void main(){
     ourColor = aColor;
     ourPos = aPos;
 }
+
 // */
 
 
 /* //05_shader_class
+
 #version 330 core
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec3 aColor;
@@ -108,4 +167,5 @@ void main(){
     gl_PointSize = 10.0f;
     ourColor = aColor;
 }
+
 // */

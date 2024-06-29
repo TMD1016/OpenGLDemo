@@ -1,7 +1,25 @@
 
 
+//10_use_plane_geometry
+
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    //FragColor = mix(texture(texture1, outTexCoord) , texture(texture2, outTexCoord),0.1f);
+    FragColor = texture(texture2, outTexCoord);
+}
+
+
+//*/
 
 /* //09_transform
+
 #version 330 core
 out vec4 FragColor;
 in vec3 ourColor;
