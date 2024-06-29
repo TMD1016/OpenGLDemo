@@ -1,9 +1,6 @@
 
 
-
-
-
- // 06_glsl_exercise
+// 06_glsl_exercise
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -22,7 +19,7 @@ int main(int argc, char *argv[])
 {
     //获取根目录
     auto rootPath =  getRootDirectory(argv[0]);
-
+    std::cout << "rootPath:" <<  rootPath <<std::endl;
     glfwInit();
     // 设置主要和次要版本
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
