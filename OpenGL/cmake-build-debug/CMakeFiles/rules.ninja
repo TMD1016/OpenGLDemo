@@ -17,7 +17,11 @@
 rule C_COMPILER__OpenGL_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
+<<<<<<< HEAD
   command = ${LAUNCHER}${CODE_CHECK}"D:\SoftInstallPath\CLion 2024.1.1\bin\mingw\bin\gcc.exe" $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+=======
+  command = ${LAUNCHER}${CODE_CHECK}"D:\SoftPath\CLion 2024.1\bin\mingw\bin\gcc.exe" $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = Building C object $out
 
 
@@ -27,7 +31,11 @@ rule C_COMPILER__OpenGL_unscanned_Debug
 rule CXX_COMPILER__OpenGL_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
+<<<<<<< HEAD
   command = ${LAUNCHER}${CODE_CHECK}"D:\SoftInstallPath\CLion 2024.1.1\bin\mingw\bin\g++.exe" $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+=======
+  command = ${LAUNCHER}${CODE_CHECK}"D:\SoftPath\CLion 2024.1\bin\mingw\bin\g++.exe" $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = Building CXX object $out
 
 
@@ -35,7 +43,11 @@ rule CXX_COMPILER__OpenGL_unscanned_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__OpenGL_Debug
+<<<<<<< HEAD
   command = C:\windows\system32\cmd.exe /C "$PRE_LINK && "D:\SoftInstallPath\CLion 2024.1.1\bin\mingw\bin\g++.exe" $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+=======
+  command = C:\windows\system32\cmd.exe /C "$PRE_LINK && "D:\SoftPath\CLion 2024.1\bin\mingw\bin\g++.exe" $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -52,7 +64,11 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
+<<<<<<< HEAD
   command = "D:\SoftInstallPath\CLion 2024.1.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\GitDemo\OpenGLDemo\OpenGL -BD:\GitDemo\OpenGLDemo\OpenGL\cmake-build-debug
+=======
+  command = "D:\SoftPath\CLion 2024.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\UEProject\OpenGLDemo\OpenGL -BD:\UEProject\OpenGLDemo\OpenGL\cmake-build-debug
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = Re-running CMake...
   generator = 1
 
@@ -61,7 +77,11 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
+<<<<<<< HEAD
   command = "D:\SoftInstallPath\CLion 2024.1.1\bin\ninja\win\x64\ninja.exe" $FILE_ARG -t clean $TARGETS
+=======
+  command = "D:\SoftPath\CLion 2024.1\bin\ninja\win\x64\ninja.exe" $FILE_ARG -t clean $TARGETS
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = Cleaning all built files...
 
 
@@ -69,6 +89,10 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
+<<<<<<< HEAD
   command = "D:\SoftInstallPath\CLion 2024.1.1\bin\ninja\win\x64\ninja.exe" -t targets
+=======
+  command = "D:\SoftPath\CLion 2024.1\bin\ninja\win\x64\ninja.exe" -t targets
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
   description = All primary targets available:
 

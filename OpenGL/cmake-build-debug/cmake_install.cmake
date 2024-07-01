@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: D:/GitDemo/OpenGLDemo/OpenGL
+=======
+# Install script for directory: D:/UEProject/OpenGLDemo/OpenGL
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +38,11 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
+<<<<<<< HEAD
   set(CMAKE_OBJDUMP "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/objdump.exe")
+=======
+  set(CMAKE_OBJDUMP "D:/SoftPath/CLion 2024.1/bin/mingw/bin/objdump.exe")
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +53,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "D:/GitDemo/OpenGLDemo/OpenGL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "D:/UEProject/OpenGLDemo/OpenGL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
