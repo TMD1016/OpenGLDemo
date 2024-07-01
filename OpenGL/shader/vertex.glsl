@@ -56,7 +56,7 @@ void main() {
 
     // mat4 rotate = rotateZ(factor) * rotateY(factor) * rotateX(factor);
 
-    //gl_Position = rotateXYZ(factor) * vec4(Position, 1.0f);
+    gl_Position = rotateXYZ(factor) * vec4(Position, 1.0f);
 
     // gl_Position = vec4(Position, 1.0f);
 
