@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 13,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
@@ -59,7 +59,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "D:/UEProject/OpenGLDemo/OpenGL/include"
+					"path" : "D:/GitDemo/OpenGLDemo/OpenGL/include"
 				}
 			],
 			"language" : "CXX",
@@ -87,7 +87,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "D:/UEProject/OpenGLDemo/OpenGL/include"
+					"path" : "D:/GitDemo/OpenGLDemo/OpenGL/include"
 				}
 			],
 			"language" : "C",
@@ -112,7 +112,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\UEProject\\OpenGLDemo\\OpenGL\\lib\\glfw3.dll",
+				"fragment" : "D:\\GitDemo\\OpenGLDemo\\OpenGL\\lib\\glfw3.dll",
 				"role" : "libraries"
 			},
 			{
@@ -138,13 +138,6 @@
 				0,
 				1
 			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				2
-			]
 		}
 	],
 	"sources" : 
@@ -160,11 +153,6 @@
 			"compileGroupIndex" : 1,
 			"path" : "src/glad.c",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/tool/shader.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

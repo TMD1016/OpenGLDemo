@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 set(CMAKE_C_COMPILER "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/gcc.exe")
-=======
-set(CMAKE_C_COMPILER "D:/SoftPath/CLion 2024.1/bin/mingw/bin/gcc.exe")
->>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "13.1.0")
@@ -25,19 +21,11 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 
-<<<<<<< HEAD
 set(CMAKE_AR "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/ar.exe")
 set(CMAKE_C_COMPILER_AR "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/gcc-ar.exe")
 set(CMAKE_RANLIB "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/ranlib.exe")
 set(CMAKE_C_COMPILER_RANLIB "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/gcc-ranlib.exe")
 set(CMAKE_LINKER "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/ld.exe")
-=======
-set(CMAKE_AR "D:/SoftPath/CLion 2024.1/bin/mingw/bin/ar.exe")
-set(CMAKE_C_COMPILER_AR "D:/SoftPath/CLion 2024.1/bin/mingw/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "D:/SoftPath/CLion 2024.1/bin/mingw/bin/ranlib.exe")
-set(CMAKE_C_COMPILER_RANLIB "D:/SoftPath/CLion 2024.1/bin/mingw/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "D:/SoftPath/CLion 2024.1/bin/mingw/bin/ld.exe")
->>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCC 1)
@@ -80,11 +68,7 @@ endif()
 
 
 
-<<<<<<< HEAD
 set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/include;D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/x86_64-w64-mingw32/include")
-=======
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "D:/SoftPath/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/SoftPath/CLion 2024.1/bin/mingw/include;D:/SoftPath/CLion 2024.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/SoftPath/CLion 2024.1/bin/mingw/x86_64-w64-mingw32/include")
->>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

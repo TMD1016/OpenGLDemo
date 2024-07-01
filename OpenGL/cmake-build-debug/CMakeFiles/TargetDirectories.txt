@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 D:/GitDemo/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/OpenGL.dir
 D:/GitDemo/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/GitDemo/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-=======
-D:/UEProject/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/OpenGL.dir
-D:/UEProject/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/UEProject/OpenGLDemo/OpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
->>>>>>> e3f18d42eab3f241e33211747d57c5f3f604ea1f

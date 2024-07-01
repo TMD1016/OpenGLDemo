@@ -4,13 +4,16 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
-
+#include <tool/shader.h>
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <map>
 #include <vector>
+#include "mesh.h"
+#include <tool/stb_image.h>
+
 using namespace std;
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
 class Model
