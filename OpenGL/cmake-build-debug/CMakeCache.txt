@@ -236,6 +236,9 @@ CMAKE_STRIP:FILEPATH=D:/SoftInstallPath/CLion 2024.1.1/bin/mingw/bin/strip.exe
 //Path to a program.
 CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 
+//Vcpkg toolchain file
+CMAKE_TOOLCHAIN_FILE:STRING=D:/GitDemo/OpenGLDemo/OpenGL/vcpkg/scripts/buildsystems/vcpkg.cmake
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual

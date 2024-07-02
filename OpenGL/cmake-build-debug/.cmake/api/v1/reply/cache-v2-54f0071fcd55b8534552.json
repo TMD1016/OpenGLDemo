@@ -1254,6 +1254,18 @@
 			"value" : "CMAKE_TAPI-NOTFOUND"
 		},
 		{
+			"name" : "CMAKE_TOOLCHAIN_FILE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Vcpkg toolchain file"
+				}
+			],
+			"type" : "STRING",
+			"value" : "D:/GitDemo/OpenGLDemo/OpenGL/vcpkg/scripts/buildsystems/vcpkg.cmake"
+		},
+		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
 			"properties" : 
 			[
