@@ -1,7 +1,36 @@
 
 
 
-//12_use_box_geometry
+
+//14_use_image_ui
+
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main() {
+    FragColor = mix(texture(texture1, outTexCoord), texture(texture2, outTexCoord), 0.1);
+}
+//*/
+
+/*// 13_model_view_projection
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main()
+{
+    FragColor = mix(texture(texture1, outTexCoord), texture(texture2, outTexCoord), 0.1f);
+}
+// */
+
+/* //12_use_box_geometry
 #version 330 core
 out vec4 FragColor;
 in vec2 outTexCoord;
