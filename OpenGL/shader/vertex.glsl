@@ -3,7 +3,7 @@
 
 
 
-//14_use_image_ui
+ //14_use_image_ui
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;
@@ -24,7 +24,7 @@ void main() {
 
 //*/
 
-/*// 13_model_view_projection
+ /*// 13_model_view_projection
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;

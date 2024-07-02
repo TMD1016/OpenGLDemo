@@ -5,7 +5,6 @@
 #
 #add_executable(OpenGL main.cpp)
 
-
 cmake_minimum_required(VERSION 3.23)
 project(OpenGL)
 
