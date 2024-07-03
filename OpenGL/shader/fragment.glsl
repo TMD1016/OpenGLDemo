@@ -2,7 +2,39 @@
 
 
 
-//14_use_image_ui
+
+
+
+
+//16_use_camera
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main() {
+    FragColor = mix(texture(texture1, outTexCoord), texture(texture2, outTexCoord), 0.1);
+}
+
+//*/
+
+
+/*// 15_mvp_matrix_exercise
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main() {
+    FragColor = mix(texture(texture1, outTexCoord), texture(texture2, outTexCoord), 0.1);
+}
+// */
+
+/* //14_use_image_ui
 
 #version 330 core
 out vec4 FragColor;
