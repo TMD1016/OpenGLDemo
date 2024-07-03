@@ -1,6 +1,6 @@
 
 
-//16_use_camera
+/*//16_use_camera
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;
@@ -41,7 +41,7 @@ void main() {
 }
 // */
 
-/* //14_use_image_ui
+ //14_use_image_ui
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;

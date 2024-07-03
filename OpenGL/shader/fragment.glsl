@@ -6,7 +6,7 @@
 
 
 
-//16_use_camera
+/*//16_use_camera
 #version 330 core
 out vec4 FragColor;
 in vec2 outTexCoord;
@@ -34,7 +34,7 @@ void main() {
 }
 // */
 
-/* //14_use_image_ui
+ //14_use_image_ui
 
 #version 330 core
 out vec4 FragColor;

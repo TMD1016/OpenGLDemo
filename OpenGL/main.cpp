@@ -7,7 +7,7 @@
 
 
 
-//16_use_camera
+/* //16_use_camera
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -568,7 +568,7 @@ std::string getRootDirectory(const std::string fullPath) {
 
 // */
 
-/* //14_use_image_ui
+ //14_use_image_ui
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -1709,6 +1709,7 @@ int main(int argc, char *argv[])
         trans = glm::mat4(1.0f);
 
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_LINES, 6, GL_UNSIGNED_INT, 0);
         glDrawElements(GL_POINTS, 6, GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
