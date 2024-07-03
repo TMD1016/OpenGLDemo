@@ -41,7 +41,7 @@ void main() {
 }
 // */
 
- //14_use_image_ui
+/* //14_use_image_ui
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;
@@ -309,7 +309,7 @@ void main() {
 }
 //*/
 
-/* //08_load_texture_exercise
+ //08_load_texture_exercise
 
 #version 330 core
 layout(location = 0) in vec3 aPos;
@@ -357,11 +357,10 @@ out vec3 ourColor;
 out vec3 ourPos;
 
 uniform float xOffset;
-// vec3(0.0, 0.0, 0.0)
 
 void main(){
     gl_Position = vec4(aPos.x + xOffset, -aPos.y, aPos.z, 1.0f);
-    ourColor = aColor;
+    //ourColor = aColor;
     ourPos = aPos;
 }
 

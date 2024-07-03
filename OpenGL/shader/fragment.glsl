@@ -34,7 +34,7 @@ void main() {
 }
 // */
 
- //14_use_image_ui
+/* //14_use_image_ui
 
 #version 330 core
 out vec4 FragColor;
@@ -135,7 +135,7 @@ void main() {
 }
 //*/
 
-/* //08_load_texture_exercise
+/ //08_load_texture_exercise
 #version 330 core
 out vec4 FragColor;
 in vec3 ourColor;
@@ -162,9 +162,11 @@ uniform sampler2D texture2;
 
 void main()
 {
-    FragColor = min(texture(texture1,TexCoord),texture(texture2,TexCoord));
+    //FragColor = vec4(ourColor, 1.0f);
     //FragColor = texture(texture1,TexCoord);
     //FragColor = texture(texture2,TexCoord);
+    FragColor = min(texture(texture1,TexCoord),texture(texture2,TexCoord));
+
 }
 // */
 

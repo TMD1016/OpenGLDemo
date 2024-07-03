@@ -568,7 +568,7 @@ std::string getRootDirectory(const std::string fullPath) {
 
 // */
 
- //14_use_image_ui
+/* //14_use_image_ui
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -598,7 +598,7 @@ int main(int argc, char *argv[])
     std::cout << "Root path: " << rootPath << std::endl;
 
     glfwInit();
-    const char *glsl_version = "#version 330";
+    //const char *glsl_version = "#version 330";
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -618,7 +618,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-//    // 创建imgui上下文
+    // 创建imgui上下文
 //    ImGui::CreateContext();
 //    ImGuiIO& io = ImGui::GetIO(); (void)io;
 //    // 设置样式
@@ -703,7 +703,7 @@ int main(int argc, char *argv[])
             glm::vec3(-1.3f, 1.0f, -1.5f)
     };
 
-//    float f = 0.0f;
+ //   float f = 0.0f;
     //ImVec4 clear_color = ImVec4(0.21f, 0.3f, 0.21f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
@@ -719,8 +719,7 @@ int main(int argc, char *argv[])
 //        ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
 //        ImGui::ColorEdit3("clear color", (float *)&clear_color);
 //        ImGui::End();
-//
-//        cout << "f = " << f << endl;
+//       cout << "f = " << f << endl;
 
         // 渲染指令
         // ...
@@ -776,7 +775,7 @@ int main(int argc, char *argv[])
         glBindVertexArray(sphereGeometry.VAO);
         glDrawElements(GL_TRIANGLES, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
-//        // 渲染 gui
+        // 渲染 gui
 //        ImGui::Render();
 //        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -784,7 +783,7 @@ int main(int argc, char *argv[])
         glfwPollEvents();
     }
 
-//    // Cleanup
+    // Cleanup
 //    ImGui_ImplOpenGL3_Shutdown();
 //    ImGui_ImplGlfw_Shutdown();
 //    ImGui::DestroyContext();
@@ -1749,7 +1748,7 @@ std::string getRootDirectory(const std::string fullPath)
 
 //*/
 
-/* //08_load_texture_exercise
+ //08_load_texture_exercise
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <tool/shader.h>
@@ -1759,11 +1758,8 @@ std::string getRootDirectory(const std::string fullPath)
 #include <tool/stb_image.h>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
-
 void processInput(GLFWwindow *window);
-
 std::string Shader::dirName;
-
 std::string getRootDirectory(const std::string fullPath);
 
 int main(int argc, char *argv[])
@@ -1803,7 +1799,7 @@ int main(int argc, char *argv[])
 
     // 顶点数据
     float vertices[] = {
-            //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
+            //     ---- 位置 ----         ---- 颜色 ----                --- 纹理坐标 ---
             0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // 右上
             0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 右下
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0, 0.0f, // 左下
@@ -2014,7 +2010,7 @@ int main(int argc, char *argv[])
 
     // 顶点数据
     float vertices[] = {
-            //     ---- 位置 ----       ---- 颜色 ----           ----- 纹理坐标 ----
+            //     ---- 位置 ----         ---- 颜色 ----                ---- 纹理坐标 ---
             0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // 右上
             0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 右下
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0, 0.0f, // 左下
@@ -2217,7 +2213,7 @@ int main(int argc, char *argv[])
 
     // 定义顶点数组
     float vertices[] = {
-            // 位置              // 颜色
+            // 位置                       // 颜色
             0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // 右下
             -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // 左下
             0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f    // 顶部
@@ -2439,8 +2435,8 @@ std::string getRootDirectory(const std::string fullPath)
 #include<GLFW/glfw3.h>
 #include<iostream>
 
-void framebuffer_size_callbacke(GLFWwindow *wwindow, int width, int height);
-void processInput(GLFWwindow *wwindow);
+void framebuffer_size_callbacke(GLFWwindow *window, int width, int height);
+void processInput(GLFWwindow *window);
 
 const char *vertexShaderSource = R"(
     #version 330 core
@@ -2561,18 +2557,18 @@ int main() {
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
-        glClearColor(0.5, 0.0, 1.0, 1.0);//背景色
+        glClearColor(0.0, 0.5, 0.5, 0.0);//背景色
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
 
-        //glDrawArrays(GL_POINTS, 0, 6);
+        //glDrawArrays(GL_POINTS, 0, 3);
         //glDrawArrays(GL_LINE_LOOP, 0, 3);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 

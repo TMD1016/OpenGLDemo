@@ -14,3 +14,4 @@ add_executable(OpenGL main.cpp src/glad.c)
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 target_link_libraries(OpenGL ${PROJECT_SOURCE_DIR}/lib/glfw3.dll)
+
