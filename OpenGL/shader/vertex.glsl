@@ -21,7 +21,7 @@ void main() {
 
 //*/
 
-/*// 15_mvp_matrix_exercise
+/* // 15_mvp_matrix_exercise
 #version 330 core
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec3 Normal;

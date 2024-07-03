@@ -2,12 +2,7 @@
 
 
 
-
-
-
-
-
-/* //16_use_camera
+/*//16_use_camera
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -49,7 +44,7 @@ int main(int argc, char *argv[])
     std::cout << "Root path: " << rootPath << std::endl;
 
     glfwInit();
-    //const char *glsl_version = "#version 330";
+    const char *glsl_version = "#version 330";
     // 片段着色器将作用域每一个采样点（采用4倍抗锯齿，则每个像素有4个片段（四个采样点））
     // glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -72,14 +67,14 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-//    ImGui::CreateContext();
-//    ImGuiIO &io = ImGui::GetIO();
-//    (void)io;
-//    // 设置样式
-//    ImGui::StyleColorsDark();
-//    // 设置平台和渲染器
-//    ImGui_ImplGlfw_InitForOpenGL(window, true);
-//    ImGui_ImplOpenGL3_Init(glsl_version);
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    // 设置样式
+    ImGui::StyleColorsDark();
+    // 设置平台和渲染器
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
 
 
     // 设置视口
@@ -163,7 +158,7 @@ int main(int argc, char *argv[])
 
     float fov = 45.0f; // 视锥体的角度
     glm::vec3 view_translate = glm::vec3(0.0, 0.0, -5.0);
-    //ImVec4 clear_color = ImVec4(0.2, 0.3, 0.3, 1.0);
+    ImVec4 clear_color = ImVec4(0.2, 0.3, 0.3, 1.0);
 
     float radius = 10.0f;
     while (!glfwWindowShouldClose(window))
@@ -174,13 +169,13 @@ int main(int argc, char *argv[])
         deltaTime = currentFrame - lastTime;
         lastTime = currentFrame;
 
-//        ImGui_ImplOpenGL3_NewFrame();
-//        ImGui_ImplGlfw_NewFrame();
-//        ImGui::NewFrame();
-//
-//        ImGui::Begin("controls");
-//        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-//        ImGui::End();
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::Begin("controls");
+        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::End();
 
         // 渲染指令
         // ...
@@ -221,13 +216,17 @@ int main(int argc, char *argv[])
         glBindVertexArray(boxGeometry.VAO);
         glDrawElements(GL_TRIANGLES, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
-//        // 渲染 gui
-//        ImGui::Render();
-//        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        // 渲染 gui
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
 
     boxGeometry.dispose();
     planeGeometry.dispose();
@@ -346,7 +345,7 @@ int main(int argc, char *argv[])
     std::cout << "Root path: " << rootPath << std::endl;
 
     glfwInit();
-    //const char *glsl_version = "#version 330";
+    const char *glsl_version = "#version 330";
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -366,14 +365,14 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-//    ImGui::CreateContext();
-//    ImGuiIO &io = ImGui::GetIO();
-//    (void)io;
-//    // 设置样式
-//    ImGui::StyleColorsDark();
-//    // 设置平台和渲染器
-//    ImGui_ImplGlfw_InitForOpenGL(window, true);
-//    ImGui_ImplOpenGL3_Init(glsl_version);
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    // 设置样式
+    ImGui::StyleColorsDark();
+    // 设置平台和渲染器
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
 
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glEnable(GL_PROGRAM_POINT_SIZE);
@@ -452,28 +451,28 @@ int main(int argc, char *argv[])
 
     float fov = 45.0f; // 视锥体的角度
     glm::vec3 view_translate = glm::vec3(0.0, 0.0, -5.0);
-    //ImVec4 clear_color = ImVec4(0.21, 0.3, 0.21, 1.0);
+    ImVec4 clear_color = ImVec4(0.21, 0.3, 0.21, 1.0);
 
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
-//        ImGui_ImplOpenGL3_NewFrame();
-//        ImGui_ImplGlfw_NewFrame();
-//        ImGui::NewFrame();
-//
-//        ImGui::Begin("imgui");
-//        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-//        ImGui::SliderFloat("fov", &fov, 0.0f, 360.0f);
-//        ImGui::SliderInt("SCREEN_WIDTH", &SCREEN_WIDTH, 1, 1980);
-//        ImGui::SliderInt("SCREEN_HEIGHT", &SCREEN_HEIGHT, 1, 1080);
-//
-//        ImGui::SliderFloat("x", &view_translate.x, -10.0, 10.0);
-//        ImGui::SliderFloat("y", &view_translate.y, -10.0, 10.0);
-//        ImGui::SliderFloat("z", &view_translate.z, -10.0, 10.0);
-//
-//        ImGui::ColorEdit3("clear color", (float *)&clear_color);
-//        ImGui::End();
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::Begin("imgui");
+        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::SliderFloat("fov", &fov, 0.0f, 360.0f);
+        ImGui::SliderInt("SCREEN_WIDTH", &SCREEN_WIDTH, 1, 1980);
+        ImGui::SliderInt("SCREEN_HEIGHT", &SCREEN_HEIGHT, 1, 1080);
+
+        ImGui::SliderFloat("x", &view_translate.x, -10.0, 10.0);
+        ImGui::SliderFloat("y", &view_translate.y, -10.0, 10.0);
+        ImGui::SliderFloat("z", &view_translate.z, -10.0, 10.0);
+
+        ImGui::ColorEdit3("clear color", (float *)&clear_color);
+        ImGui::End();
 
         // 渲染指令
         // ...
@@ -532,13 +531,17 @@ int main(int argc, char *argv[])
         glBindVertexArray(sphereGeometry.VAO);
         glDrawElements(GL_TRIANGLES, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
-//        // 渲染 gui
-//        ImGui::Render();
-//        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        // 渲染 gui
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
 
     boxGeometry.dispose();
     planeGeometry.dispose();
@@ -598,7 +601,7 @@ int main(int argc, char *argv[])
     std::cout << "Root path: " << rootPath << std::endl;
 
     glfwInit();
-    //const char *glsl_version = "#version 330";
+    const char *glsl_version = "#version 330";
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -619,13 +622,13 @@ int main(int argc, char *argv[])
     }
 
     // 创建imgui上下文
-//    ImGui::CreateContext();
-//    ImGuiIO& io = ImGui::GetIO(); (void)io;
-//    // 设置样式
-//    ImGui::StyleColorsDark();
-//    // 设置平台和渲染器
-//    ImGui_ImplGlfw_InitForOpenGL(window, true);
-//    ImGui_ImplOpenGL3_Init(glsl_version);
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    // 设置样式
+    ImGui::StyleColorsDark();
+    // 设置平台和渲染器
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
 
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glEnable(GL_PROGRAM_POINT_SIZE);
@@ -703,23 +706,23 @@ int main(int argc, char *argv[])
             glm::vec3(-1.3f, 1.0f, -1.5f)
     };
 
- //   float f = 0.0f;
-    //ImVec4 clear_color = ImVec4(0.21f, 0.3f, 0.21f, 1.0f);
+    float f = 0.0f;
+    ImVec4 clear_color = ImVec4(0.21f, 0.3f, 0.21f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
-//        ImGui_ImplOpenGL3_NewFrame();
-//        ImGui_ImplGlfw_NewFrame();
-//        ImGui::NewFrame();
-//
-//        ImGui::Begin("imgui");
-//        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-//        ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-//        ImGui::ColorEdit3("clear color", (float *)&clear_color);
-//        ImGui::End();
-//       cout << "f = " << f << endl;
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::Begin("imgui");
+        ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+        ImGui::ColorEdit3("clear color", (float *)&clear_color);
+        ImGui::End();
+        cout << "f = " << f << endl;
 
         // 渲染指令
         // ...
@@ -776,17 +779,17 @@ int main(int argc, char *argv[])
         glDrawElements(GL_TRIANGLES, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
         // 渲染 gui
-//        ImGui::Render();
-//        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
     // Cleanup
-//    ImGui_ImplOpenGL3_Shutdown();
-//    ImGui_ImplGlfw_Shutdown();
-//    ImGui::DestroyContext();
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
 
     boxGeometry.dispose();
     planeGeometry.dispose();
