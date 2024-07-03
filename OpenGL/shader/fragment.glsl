@@ -135,7 +135,7 @@ void main() {
 }
 //*/
 
-/ //08_load_texture_exercise
+/* //08_load_texture_exercise
 #version 330 core
 out vec4 FragColor;
 in vec3 ourColor;
