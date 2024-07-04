@@ -172,42 +172,47 @@ void main() {
 }
 //*/
 
-/* //10_use_plane_geometry
+ //10_use_plane_geometry
 
 #version 330 core
-out vec4 FragColor;
 in vec2 outTexCoord;
+out vec4 FragColor;
 
 uniform sampler2D texture1;
 uniform sampler2D texture2;
 
 void main()
 {
-    //FragColor = mix(texture(texture1, outTexCoord) , texture(texture2, outTexCoord),0.1f);
-    FragColor = texture(texture2, outTexCoord);
+    FragColor = mix(texture(texture1, outTexCoord) , texture(texture2, outTexCoord),0.5f);
+    //FragColor = texture(texture2, outTexCoord);
 }
-
 
 //*/
 
-/* //09_transform
+ /*//09_transform
 
 #version 330 core
-out vec4 FragColor;
-in vec3 ourColor;
+
 in vec3 ourPos;
+in vec3 ourColor;
 in vec2 TexCoord;
+
+out vec4 FragColor;
 
 uniform sampler2D texture1;
 uniform sampler2D texture2;
 
 void main() {
     float xy = length(ourPos.xy);
-    FragColor = mix(texture(texture1, TexCoord), vec4(ourColor, 1.0f - xy * 2.0f) * texture(texture2, TexCoord), 0.5f);
+    FragColor = mix(texture(texture1, TexCoord),  vec4(ourColor, 1.0f - xy * 2.0f) *texture(texture2, TexCoord), 0.5f);
+    //FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.5f);
+    //FragColor = texture(texture1,TexCoord);
+    //FragColor = texture(texture2,TexCoord);
+    //FragColor = vec4(ourColor, 1.0f);
 }
 //*/
 
- //08_load_texture_exercise
+/* //08_load_texture_exercise
 #version 330 core
 out vec4 FragColor;
 in vec3 ourColor;

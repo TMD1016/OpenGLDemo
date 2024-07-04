@@ -1,8 +1,6 @@
 
 
 
-
-
 /*// 19_basic_lighting
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -2346,7 +2344,7 @@ std::string getRootDirectory(const std::string fullPath) {
 
 //*/
 
-/* //10_use_plane_geometry
+//10_use_plane_geometry
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -2356,11 +2354,15 @@ std::string getRootDirectory(const std::string fullPath) {
 #include <iostream>
 
 #define STB_IMAGE_IMPLEMENTATION
+
 #include <tool/stb_image.h>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+
 void processInput(GLFWwindow *window);
+
 std::string Shader::dirName;
+
 std::string getRootDirectory(const std::string fullPath);
 
 const unsigned int SCREEN_WIDTH = 800;
@@ -2378,16 +2380,14 @@ int main(int argc, char *argv[]) {
 
     // 创建窗口对象
     GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
+    if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
@@ -2402,7 +2402,8 @@ int main(int argc, char *argv[]) {
 
     Shader ourShader((rootPath + "/shader/vertex.glsl").c_str(), (rootPath + "/shader/fragment.glsl").c_str());
 
-    PlaneGeometry planeGeometry(1.0, 1.0, 9, 9);
+    //创建平面
+    PlaneGeometry planeGeometry(1.0, 1.0, 10, 10);
 
     // 生成纹理
     unsigned int texture1, texture2;
@@ -2423,9 +2424,9 @@ int main(int argc, char *argv[]) {
 
     // 加载图片
     int width, height, nrChannels;
-    unsigned char *data = stbi_load((rootPath + "/static/texture/container.jpg").c_str(), &width, &height, &nrChannels, 0);
-    if (data)
-    {
+    unsigned char *data = stbi_load((rootPath + "/static/texture/container.jpg").c_str(), &width, &height, &nrChannels,
+                                    0);
+    if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
@@ -2441,8 +2442,7 @@ int main(int argc, char *argv[]) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     data = stbi_load((rootPath + "/static/texture/awesomeface.png").c_str(), &width, &height, &nrChannels, 0);
-    if (data)
-    {
+    if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
@@ -2453,8 +2453,7 @@ int main(int argc, char *argv[]) {
 
     float factor = 0.0f;
 
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
         // 渲染指令
@@ -2475,9 +2474,9 @@ int main(int argc, char *argv[]) {
 
         glBindVertexArray(planeGeometry.VAO);
 
-        // glDrawElements(GL_TRIANGLES, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
-        glDrawElements(GL_POINTS, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
-        glDrawElements(GL_LINE_LOOP, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_POINTS, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_LINE_LOOP, planeGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -2488,15 +2487,12 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-void framebuffer_size_callback(GLFWwindow *window, int width, int height)
-{
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    {
+void processInput(GLFWwindow *window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
 }
@@ -2570,7 +2566,7 @@ int main(int argc, char *argv[])
     Shader ourShader((rootPath + "/shader/vertex.glsl").c_str(), (rootPath + "/shader/fragment.glsl").c_str());
 
     float vertices[] = {
-            //     ---- 位置 ----       ---- 颜色 ----                  - 纹理坐标 -
+            //     ---- 位置 ----         ---- 颜色 ----                  - 纹理坐标 -
             0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // 右上
             0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 右下
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0, 0.0f, // 左下
@@ -2663,7 +2659,6 @@ int main(int argc, char *argv[])
     glm::mat4 trans = glm::mat4(1.0f);
     trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
     trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-
     //将矩阵传递给顶点着色器
     unsigned int transform = glGetUniformLocation(ourShader.ID, "transform");
     glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(trans));
@@ -2745,7 +2740,7 @@ std::string getRootDirectory(const std::string fullPath)
 
 //*/
 
-//08_load_texture_exercise
+/*//08_load_texture_exercise
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <tool/shader.h>
