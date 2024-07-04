@@ -1,6 +1,19 @@
 
 
-// 19_basic_lighting
+
+
+/*//20_light_material
+#version 330 core
+out vec4 FragColor;
+in vec2 outTexCoord;
+
+void main() {
+    FragColor = vec4(1);
+}
+//*/
+
+
+/* // 19_basic_lighting
 #version 330 core
 out vec4 FragColor;
 in vec2 outTexCoord;
