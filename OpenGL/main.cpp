@@ -2026,7 +2026,7 @@ std::string getRootDirectory(const std::string fullPath) {
 
  // */
 
-/* //12_use_box_geometry
+ //12_use_box_geometry
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <tool/shader.h>
@@ -2077,8 +2077,8 @@ int main(int argc, char *argv[])
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    // glEnable(GL_DEPTH_TEST);
-    // glDepthFunc(GL_LESS);
+     //glEnable(GL_DEPTH_TEST);
+     //glDepthFunc(GL_LESS);
 
     // 注册窗口变化监听
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -2138,7 +2138,6 @@ int main(int argc, char *argv[])
     ourShader.setInt("texture2", 1);
 
     float factor = 0.0;
-
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -2148,11 +2147,9 @@ int main(int argc, char *argv[])
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        ourShader.use();
-
         factor = glfwGetTime();
-        ourShader.setFloat("factor", -factor * 0.3);
-
+        ourShader.use();
+        ourShader.setFloat("factor", -factor);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
 
@@ -2160,10 +2157,10 @@ int main(int argc, char *argv[])
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         glBindVertexArray(boxGeometry.VAO);
-
-        // glDrawElements(GL_TRIANGLES, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
-        glDrawElements(GL_POINTS, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_TRIANGLES, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_POINTS, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
         glDrawElements(GL_LINE_LOOP, boxGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+        glBindVertexArray(0);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -2300,8 +2297,9 @@ int main(int argc, char *argv[]) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        factor = glfwGetTime();
         ourShader.use();
-        ourShader.setFloat("factor", -factor * 0.3f);
+        ourShader.setFloat("factor", -factor);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
@@ -2313,8 +2311,9 @@ int main(int argc, char *argv[]) {
 
         //glDrawElements(GL_TRIANGLES, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
         glDrawElements(GL_POINTS, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
-        glDrawElements(GL_LINE_LOOP, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
+        //glDrawElements(GL_LINE_LOOP, sphereGeometry.indices.size(), GL_UNSIGNED_INT, 0);
 
+        glBindVertexArray(0);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
@@ -2344,7 +2343,7 @@ std::string getRootDirectory(const std::string fullPath) {
 
 //*/
 
-//10_use_plane_geometry
+/*//10_use_plane_geometry
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -2368,7 +2367,8 @@ std::string getRootDirectory(const std::string fullPath);
 const unsigned int SCREEN_WIDTH = 800;
 const unsigned int SCREEN_HEIGHT = 600;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     auto rootPath = getRootDirectory(argv[0]);
     std::cout << "rootPath:" << rootPath << std::endl;
 
@@ -2426,7 +2426,8 @@ int main(int argc, char *argv[]) {
     int width, height, nrChannels;
     unsigned char *data = stbi_load((rootPath + "/static/texture/container.jpg").c_str(), &width, &height, &nrChannels,
                                     0);
-    if (data) {
+    if (data)
+    {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
@@ -2442,7 +2443,8 @@ int main(int argc, char *argv[]) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     data = stbi_load((rootPath + "/static/texture/awesomeface.png").c_str(), &width, &height, &nrChannels, 0);
-    if (data) {
+    if (data)
+    {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
