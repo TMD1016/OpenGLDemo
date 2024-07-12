@@ -4,7 +4,7 @@
 
 
 
-//27_load_model
+/*//27_load_model
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -24,7 +24,7 @@
 #include <tool/gui.h>
 
 #include <tool/mesh.h>
-#include <tool/model.h>
+//#include <tool/model.h>
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void mouse_callback(GLFWwindow *window, double xpos, double ypos);
@@ -202,7 +202,7 @@ int main(int argc, char *argv[])
             glm::vec3(0.0f, 0.0f, 1.0f),
             glm::vec3(0.0f, 1.0f, 0.0f)};
 
-    Model ourModel((rootPath + ourModelPath));
+    //Model ourModel((rootPath + ourModelPath));
 
     while (!glfwWindowShouldClose(window))
     {
@@ -306,7 +306,7 @@ int main(int argc, char *argv[])
         model = glm::scale(model, glm::vec3(0.13f, 0.13f, 0.13f));
         ourShader.setMat4("model", model);
 
-        ourModel.Draw(ourShader);
+        //ourModel.Draw(ourShader);
 
         // 绘制灯光物体
         lightObjectShader.use();
@@ -452,7 +452,7 @@ std::string getRootDirectory(const std::string fullPath) {
 //*/
 
 
-/*//26_multiple_light
+//26_multiple_light
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>

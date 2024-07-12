@@ -12,7 +12,7 @@
 #include <map>
 #include <vector>
 #include "mesh.h"
-#include <tool/stb_image.h>
+//#include <tool/stb_image.h>
 
 using namespace std;
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
